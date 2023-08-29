@@ -2,10 +2,13 @@ package com.insurance.vehicleInsurance.serviceImplementations;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.insurance.vehicleInsurance.entity.InsuranceRenewal;
 import com.insurance.vehicleInsurance.exception.InsuranceRenewalException;
 import com.insurance.vehicleInsurance.service.InsuranceRenewalService;
 
+@Service
 public class InsuranceRenewalServiceImpl implements InsuranceRenewalService{
 
 	@Override

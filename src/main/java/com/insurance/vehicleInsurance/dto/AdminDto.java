@@ -1,14 +1,8 @@
-package com.insurance.vehicleInsurance.entity;
+package com.insurance.vehicleInsurance.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
-@Entity
-public class Admin {
+public class AdminDto {
 
 	@Id
 	private Integer adminId;
@@ -18,14 +12,11 @@ public class Admin {
 	private String userName;
 	private String adminPassword;
 	
-	@OneToMany
-	List<Approval>approvals = new ArrayList<Approval>();
-	
-	public Admin() {
+	public AdminDto() {
 		super();
 	}
 
-	public Admin(Integer adminId, String adminName, String adminEmail, String adminPhone, String userName,
+	public AdminDto(Integer adminId, String adminName, String adminEmail, String adminPhone, String userName,
 			String adminPassword) {
 		super();
 		this.adminId = adminId;
@@ -34,18 +25,6 @@ public class Admin {
 		this.adminPhone = adminPhone;
 		this.userName = userName;
 		this.adminPassword = adminPassword;
-	}
-
-	public Admin(Integer adminId, String adminName, String adminEmail, String adminPhone, String userName,
-			String adminPassword, List<Approval> approvals) {
-		super();
-		this.adminId = adminId;
-		this.adminName = adminName;
-		this.adminEmail = adminEmail;
-		this.adminPhone = adminPhone;
-		this.userName = userName;
-		this.adminPassword = adminPassword;
-		this.approvals = approvals;
 	}
 
 	public Integer getAdminId() {
@@ -94,13 +73,5 @@ public class Admin {
 
 	public void setAdminPassword(String adminPassword) {
 		this.adminPassword = adminPassword;
-	}
-
-	public List<Approval> getApprovals() {
-		return approvals;
-	}
-
-	public void setApprovals(List<Approval> approvals) {
-		this.approvals = approvals;
 	}
 }

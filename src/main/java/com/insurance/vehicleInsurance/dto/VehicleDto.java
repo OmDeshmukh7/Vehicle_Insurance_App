@@ -1,29 +1,22 @@
-package com.insurance.vehicleInsurance.entity;
+package com.insurance.vehicleInsurance.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
-@Entity
-public class Vehicle {
+public class VehicleDto {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer vehicleId;
 	private String vehicleType;
 	private String vehicleRegNumber;
 	private String vehicleName;
-	@OneToOne
-	private Insurance insurance;
 	
-	public Vehicle() {
+	public VehicleDto() {
 		super();
 	}
 
-	public Vehicle(String vehicleType, String vehicleRegNumber, String vehicleName) {
+	public VehicleDto(Integer vehicleId, String vehicleType, String vehicleRegNumber, String vehicleName) {
 		super();
+		this.vehicleId = vehicleId;
 		this.vehicleType = vehicleType;
 		this.vehicleRegNumber = vehicleRegNumber;
 		this.vehicleName = vehicleName;
@@ -52,6 +45,7 @@ public class Vehicle {
 	public void setVehicleRegNumber(String vehicleRegNumber) {
 		this.vehicleRegNumber = vehicleRegNumber;
 	}
+
 	public String getVehicleName() {
 		return vehicleName;
 	}
@@ -59,12 +53,5 @@ public class Vehicle {
 	public void setVehicleName(String vehicleName) {
 		this.vehicleName = vehicleName;
 	}
-
-	public Insurance getInsurance() {
-		return insurance;
-	}
-
-	public void setInsurance(Insurance insurance) {
-		this.insurance = insurance;
-	}
+	
 }

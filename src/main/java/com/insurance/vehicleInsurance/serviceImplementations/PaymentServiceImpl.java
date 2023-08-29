@@ -2,10 +2,13 @@ package com.insurance.vehicleInsurance.serviceImplementations;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.insurance.vehicleInsurance.entity.Payment;
 import com.insurance.vehicleInsurance.exception.PaymentException;
 import com.insurance.vehicleInsurance.service.PaymentService;
 
+@Service
 public class PaymentServiceImpl implements PaymentService{
 
 	@Override

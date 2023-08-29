@@ -1,21 +1,9 @@
-package com.insurance.vehicleInsurance.entity;
+package com.insurance.vehicleInsurance.dto;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+public class CustomerDto {
 
-@Entity
-public class Customer {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer customerId;
 	private String customerName;
 	private String customerMobile;
 	private String customerEmail;
@@ -23,20 +11,11 @@ public class Customer {
 	private String customerUserName;
 	private String customerPassword;
 	
-	@OneToMany
-	List<Vehicle> vehicles = new ArrayList<Vehicle>();
-	@OneToOne
-	Documents documents;
-	@OneToOne
-	Registration registration;
-	@OneToMany
-	List<Insurance> insurances = new ArrayList<Insurance>();
-	
-	public Customer() {
+	public CustomerDto() {
 		super();
 	}
-
-	public Customer(String customerName, String customerMobile, String customerEmail,
+	
+	public CustomerDto(String customerName, String customerMobile, String customerEmail,
 			String customerAddress, String customerUserName, String customerPassword) {
 		super();
 		this.customerName = customerName;
@@ -46,93 +25,42 @@ public class Customer {
 		this.customerUserName = customerUserName;
 		this.customerPassword = customerPassword;
 	}
-
-	public Integer getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
-	}
-
 	public String getCustomerName() {
 		return customerName;
 	}
-
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
-
 	public String getCustomerMobile() {
 		return customerMobile;
 	}
-
 	public void setCustomerMobile(String customerMobile) {
 		this.customerMobile = customerMobile;
 	}
-
 	public String getCustomerEmail() {
 		return customerEmail;
 	}
-
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
 	}
-
 	public String getCustomerAddress() {
 		return customerAddress;
 	}
-
 	public void setCustomerAddress(String customerAddress) {
 		this.customerAddress = customerAddress;
 	}
-
 	public String getCustomerUserName() {
 		return customerUserName;
 	}
-
 	public void setCustomerUserName(String customerUserName) {
 		this.customerUserName = customerUserName;
 	}
-
 	public String getCustomerPassword() {
 		return customerPassword;
 	}
-
 	public void setCustomerPassword(String customerPassword) {
 		this.customerPassword = customerPassword;
 	}
-
-	public Documents getDocuments() {
-		return documents;
-	}
-
-	public void setDocuments(Documents documents) {
-		this.documents = documents;
-	}
-
-	public Registration getRegistration() {
-		return registration;
-	}
-
-	public void setRegistration(Registration registration) {
-		this.registration = registration;
-	}
-
-	public List<Vehicle> getVehicles() {
-		return vehicles;
-	}
-
-	public void setVehicles(List<Vehicle> vehicles) {
-		this.vehicles = vehicles;
-	}
-
-	public List<Insurance> getInsurances() {
-		return insurances;
-	}
-
-	public void setInsurances(List<Insurance> insurances) {
-		this.insurances = insurances;
-	}
+	
 	
 }

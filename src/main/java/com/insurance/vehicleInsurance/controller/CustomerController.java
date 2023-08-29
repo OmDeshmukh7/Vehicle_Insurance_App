@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.insurance.vehicleInsurance.dto.CustomerDto;
 import com.insurance.vehicleInsurance.entity.Customer;
 import com.insurance.vehicleInsurance.exception.CustomerException;
 import com.insurance.vehicleInsurance.service.CustomerService;
@@ -22,20 +24,18 @@ import com.insurance.vehicleInsurance.service.CustomerService;
 @RestController
 public class CustomerController {
 	
+
+	
 	@Autowired
 	CustomerService customerService;
 	
-	@PostMapping("/create/customer/")
-	public Customer addCustomer(@RequestBody Customer customer) throws CustomerException {
-		try {
+	@PostMapping("/customer/")
+	public Customer addCustomer(@RequestBody CustomerDto customer) throws CustomerException {
 			return this.customerService.addCustomer(customer);
-		} catch (CustomerException e) {
-			throw e;
-		}
 	}
 	
 	@GetMapping("/customer/{id}")
-	public Customer deleteCustomerById(@PathVariable Integer id) throws CustomerException {
+	public Customer getCustomerById(@PathVariable Integer id) throws CustomerException {
 		return this.customerService.getCustomerById(id);
 	}
 	
@@ -46,13 +46,9 @@ public class CustomerController {
 	}
 	
 	@DeleteMapping("/customer/{id}")
-	public ResponseEntity<Customer> deleteProductById(@PathVariable Integer id) throws CustomerException{
+	public ResponseEntity<Customer> deleteCustomerById(@PathVariable Integer id) throws CustomerException{
 		Customer customer = this.customerService.deleteCustomerById(id);
-		try {
-			return new ResponseEntity<Customer>(customer, HttpStatus.OK);
-		}catch (Exception e) {
-			throw new CustomerException("Invalid");
-		}
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 	}
 	
 	@GetMapping("/customers/")

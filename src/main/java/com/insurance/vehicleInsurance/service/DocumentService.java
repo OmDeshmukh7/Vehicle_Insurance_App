@@ -7,14 +7,14 @@ import com.insurance.vehicleInsurance.exception.DocumentException;
 
 public interface DocumentService {
 	
-	Documents addLicense(Documents newLicense)throws DocumentException;
+	Documents addDocument(Documents newLicense)throws DocumentException;
 	
-	Documents getLicenseById(Integer id)throws DocumentException;
+	Documents getDocumentById(Integer id)throws DocumentException;
 	
-	Documents updateLicense(Documents newLicense)throws DocumentException;
+	Documents updateDocument(Documents newLicense)throws DocumentException;
 	
-	Documents deleteLicenseById(Integer id)throws DocumentException;
+	Documents deleteDocumentById(Integer id)throws DocumentException;
 	
-	List<Documents>getAllLicense();
+	List<Documents>getAllDocuments();
 
 }

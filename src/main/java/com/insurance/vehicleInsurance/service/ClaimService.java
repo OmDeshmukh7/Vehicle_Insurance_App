@@ -13,7 +13,5 @@ public interface ClaimService {
 	
 	Claim updateClaim(Claim newClaim)throws ClaimException;
 	
-	Claim deleteClaimById(Integer id)throws ClaimException;
-	
 	List<Claim>getAllClaims();
 }
