@@ -14,4 +14,6 @@ public interface ClaimService {
 	Claim updateClaim(Claim newClaim)throws ClaimException;
 	
 	List<Claim>getAllClaims();
+
+	//fsjk
 }
