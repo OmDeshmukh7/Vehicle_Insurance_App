@@ -1,9 +1,13 @@
 package com.insurance.vehicleInsurance.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -19,6 +23,8 @@ public class Vehicle {
 	
 	@OneToOne
 	private Insurance insurance;
+	@OneToMany
+	private List<VehicleInspection> vehicleInspections = new ArrayList<VehicleInspection>();
 	
 	public Vehicle() {
 		super();
@@ -77,5 +83,13 @@ public class Vehicle {
 
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
+	}
+
+	public List<VehicleInspection> getVehicleInspections() {
+		return vehicleInspections;
+	}
+
+	public void setVehicleInspections(List<VehicleInspection> vehicleInspections) {
+		this.vehicleInspections = vehicleInspections;
 	}
 }

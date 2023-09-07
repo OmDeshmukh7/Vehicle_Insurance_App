@@ -1,5 +1,6 @@
 package com.insurance.vehicleInsurance.serviceImplementations;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.insurance.vehicleInsurance.dao.DocumentsRepository;
+import com.insurance.vehicleInsurance.dao.EndUserRepository;
 import com.insurance.vehicleInsurance.entity.Documents;
+import com.insurance.vehicleInsurance.entity.EndUser;
 import com.insurance.vehicleInsurance.exception.DocumentException;
 import com.insurance.vehicleInsurance.service.DocumentService;
 
@@ -17,13 +20,22 @@ public class DocumentServiceImpl implements DocumentService{
 	@Autowired
 	DocumentsRepository documentsRepository;
 	
+	@Autowired
+	EndUserRepository endUserRepository;
+	
 	@Override
 	public Documents addDocument(Documents newDocument) throws DocumentException {
-		Optional<Documents>documentOpt = this.documentsRepository.findById(newDocument.getDocumentId());
-		if(documentOpt.isPresent()) {
-			throw new DocumentException("Document already exists");
+		Optional<EndUser> endUserOpt = this.endUserRepository.findById(newDocument.getEndUserId());
+		if(!endUserOpt.isPresent()) {
+			throw new DocumentException("No Customer is present by this id.");
 		}
-		return this.documentsRepository.save(newDocument);
+		this.documentsRepository.save(newDocument);
+		List<Documents> documents = new ArrayList<Documents>();
+		documents.add(newDocument);
+		EndUser endUser = endUserOpt.get();
+		endUser.setDocuments(documents);
+		this.endUserRepository.save(endUser);
+		return newDocument;
 	}
 
 	@Override

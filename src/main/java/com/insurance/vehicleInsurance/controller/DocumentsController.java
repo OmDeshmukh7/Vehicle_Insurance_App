@@ -44,7 +44,7 @@ public class DocumentsController {
 		return new ResponseEntity<Documents>(document, HttpStatus.OK);
 	}
 
-	@GetMapping("/getAllCustomers/")
+	@GetMapping("/getAllDocuments/")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Documents> getAllDocuments() {
 		List<Documents> documentList = this.documentService.getAllDocuments();

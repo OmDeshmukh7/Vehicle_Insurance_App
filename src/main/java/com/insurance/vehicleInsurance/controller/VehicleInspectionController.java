@@ -33,12 +33,12 @@ public class VehicleInspectionController {
 		return this.vehicleInspectionService.getInspectionById(id);
 	}
 
-	@PutMapping("/updateVehicleInspection/")
-	public ResponseEntity<VehicleInspection> replaceVehicleInspection(
-			@RequestBody VehicleInspection updateVehicleInspection) throws VehicleInspectionException {
-		VehicleInspection vehicleInspection = this.vehicleInspectionService.updateInspection(updateVehicleInspection);
-		return new ResponseEntity<VehicleInspection>(vehicleInspection, HttpStatus.OK);
-	}
+//	@PutMapping("/updateVehicleInspection/")
+//	public ResponseEntity<VehicleInspection> replaceVehicleInspection(
+//			@RequestBody VehicleInspection updateVehicleInspection) throws VehicleInspectionException {
+//		VehicleInspection vehicleInspection = this.vehicleInspectionService.updateInspection(updateVehicleInspection);
+//		return new ResponseEntity<VehicleInspection>(vehicleInspection, HttpStatus.OK);
+//	}
 
 	@GetMapping("/getAllVehicleInspections/")
 	@ResponseStatus(HttpStatus.OK)

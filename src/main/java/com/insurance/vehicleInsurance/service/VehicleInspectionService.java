@@ -11,7 +11,7 @@ public interface VehicleInspectionService {
 	
 	VehicleInspection getInspectionById(Integer id)throws VehicleInspectionException;
 	
-	VehicleInspection updateInspection(VehicleInspection newInspection)throws VehicleInspectionException;
+	//VehicleInspection updateInspection(VehicleInspection newInspection)throws VehicleInspectionException;
 
 	List<VehicleInspection>getAllInspections();
 }

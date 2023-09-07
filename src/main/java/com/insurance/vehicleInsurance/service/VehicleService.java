@@ -11,11 +11,11 @@ public interface VehicleService {
 	
 	Vehicle addVehicle(VehicleDto newVehicle)throws VehicleException;
 	
-	Vehicle getVehicleById(Integer id)throws VehicleException;
+	Vehicle getVehicleByRegistrationNumber(String registrationNumber)throws VehicleException;
 	
 	Vehicle updateVehicle(VehicleDto newVehicle)throws VehicleException;
 	
-	Vehicle deleteVehicleById(Integer id)throws VehicleException;
+	Vehicle deleteVehicleById(String registrationNumber)throws VehicleException;
 	
 	Optional<Vehicle> findByVehicleRegNumber(String registrationNumber)throws VehicleException;
 	

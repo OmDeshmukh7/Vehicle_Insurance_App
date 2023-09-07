@@ -1,9 +1,9 @@
 package com.insurance.vehicleInsurance.exception;
 
-public class CustomerException extends Exception{
+public class EndUserException extends Exception{
 	
 	private static final long serialVersionUID = 1L;
-	public CustomerException (String msg) {
+	public EndUserException (String msg) {
 		super(msg);
 	}
 	

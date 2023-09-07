@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.insurance.vehicleInsurance.dao.CustomerRepository;
+import com.insurance.vehicleInsurance.dao.EndUserRepository;
 import com.insurance.vehicleInsurance.dao.InsuranceRepository;
 import com.insurance.vehicleInsurance.dao.VehicleRepository;
 import com.insurance.vehicleInsurance.dto.VehicleDto;
-import com.insurance.vehicleInsurance.entity.Customer;
+import com.insurance.vehicleInsurance.entity.EndUser;
 import com.insurance.vehicleInsurance.entity.Vehicle;
 import com.insurance.vehicleInsurance.exception.VehicleException;
 import com.insurance.vehicleInsurance.service.VehicleService;
@@ -24,22 +24,22 @@ public class VehicleServiceImpl implements VehicleService {
 	InsuranceRepository insuranceRepository;
 
 	@Autowired
-	CustomerRepository customerRepository;
+	EndUserRepository customerRepository;
 
 	@Override
 	public Vehicle addVehicle(VehicleDto newVehicle) throws VehicleException {
-		Optional<Customer> customerOpt = this.customerRepository.findById(newVehicle.getCustomerId());
-		if (!customerOpt.isPresent()) {
-			throw new VehicleException("No Customer is present with id: " + newVehicle.getCustomerId());
+		Optional<EndUser> endUserOpt = this.customerRepository.findById(newVehicle.getEndUserId());
+		if (!endUserOpt.isPresent()) {
+			throw new VehicleException("No Customer is present with id: " + newVehicle.getEndUserId());
 		}
 		Optional<Vehicle> existingVehicle = findByVehicleRegNumber(newVehicle.getVehicleRegNumber());
 		if (existingVehicle.isPresent()) {
 			throw new VehicleException("A vehicle with the same registration number already exists.");
 		}
 		Vehicle vehicle = new Vehicle(newVehicle.getVehicleType(), newVehicle.getVehicleRegNumber(),
-				newVehicle.getVehicleName(), newVehicle.getCustomerId());
+				newVehicle.getVehicleName(), newVehicle.getEndUserId());
 		vehicleRepository.save(vehicle);
-		Customer customer = customerOpt.get();
+		EndUser customer = endUserOpt.get();
 		List<Vehicle> vehicles = new ArrayList<Vehicle>();
 		vehicles.add(vehicle);
 		customer.setVehicles(vehicles);
@@ -48,10 +48,10 @@ public class VehicleServiceImpl implements VehicleService {
 	}
 
 	@Override
-	public Vehicle getVehicleById(Integer id) throws VehicleException {
-		Optional<Vehicle> vehicleOpt = this.vehicleRepository.findById(id);
+	public Vehicle getVehicleByRegistrationNumber (String registrationNumber) throws VehicleException {
+		Optional<Vehicle> vehicleOpt = this.vehicleRepository.findByVehicleRegNumber(registrationNumber);
 		if (!vehicleOpt.isPresent()) {
-			throw new VehicleException("Vehicle not found by id: " + id);
+			throw new VehicleException("Vehicle not found " + registrationNumber);
 		}
 		return vehicleOpt.get();
 	}
@@ -62,15 +62,15 @@ public class VehicleServiceImpl implements VehicleService {
 			throw new VehicleException("Please enter valid values.");
 		}
 		Vehicle vehicle = new Vehicle(newVehicle.getVehicleType(), newVehicle.getVehicleRegNumber(),
-				newVehicle.getVehicleName(), newVehicle.getCustomerId());
+				newVehicle.getVehicleName(), newVehicle.getEndUserId());
 		return this.vehicleRepository.save(vehicle);
 	}
 
 	@Override
-	public Vehicle deleteVehicleById(Integer id) throws VehicleException {
-		Optional<Vehicle> vehicleOpt = this.vehicleRepository.findById(id);
+	public Vehicle deleteVehicleById(String registrationNumber) throws VehicleException {
+		Optional<Vehicle> vehicleOpt = this.vehicleRepository.findByVehicleRegNumber(registrationNumber);
 		if (vehicleOpt == null) {
-			throw new VehicleException("Vehicle not Found to delete, id: " + id);
+			throw new VehicleException("Vehicle not Found to delete, id: " + registrationNumber);
 		}
 		Vehicle vehicle = vehicleOpt.get();
 		this.vehicleRepository.delete(vehicle);

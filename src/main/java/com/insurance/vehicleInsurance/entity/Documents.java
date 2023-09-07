@@ -1,6 +1,8 @@
 package com.insurance.vehicleInsurance.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -8,21 +10,23 @@ import javax.persistence.Id;
 public class Documents {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer documentId;
 	private String documentDescription;
 	private String documentType;
 	private String documentNumber;
+	private Integer endUserId;
 
 	public Documents() {
 		super();
 	}
 
-	public Documents(Integer documentId, String documentDescription, String documentType, String documentNumber) {
+	public Documents(String documentDescription, String documentType, String documentNumber, Integer endUserId) {
 		super();
-		this.documentId = documentId;
 		this.documentDescription = documentDescription;
 		this.documentType = documentType;
 		this.documentNumber = documentNumber;
+		this.endUserId = endUserId;
 	}
 
 	public Integer getDocumentId() {
@@ -55,5 +59,13 @@ public class Documents {
 
 	public void setDocumentNumber(String documentNumber) {
 		this.documentNumber = documentNumber;
+	}
+
+	public Integer getEndUserId() {
+		return endUserId;
+	}
+
+	public void setEndUserId(Integer customerId) {
+		this.endUserId = customerId;
 	}
 }

@@ -27,7 +27,7 @@ public class ClaimController {
 			return this.claimService.addClaim(claim);
 		}
 
-		@GetMapping("/findCustomer/{id}")
+		@GetMapping("/findClaim/{id}")
 		public Claim getClaimById(@PathVariable Integer id) throws ClaimException {
 			return this.claimService.getClaimById(id);
 		}

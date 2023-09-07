@@ -5,7 +5,7 @@ public class VehicleDto {
 	private String vehicleType;
 	private String vehicleRegNumber;
 	private String vehicleName;
-	private Integer customerId;
+	private Integer endUserId;
 	
 	public VehicleDto() {
 		super();
@@ -16,7 +16,7 @@ public class VehicleDto {
 		this.vehicleType = vehicleType;
 		this.vehicleRegNumber = vehicleRegNumber;
 		this.vehicleName = vehicleName;
-		this.customerId = customerId;
+		this.endUserId = customerId;
 	}
 
 	public String getVehicleType() {
@@ -43,11 +43,11 @@ public class VehicleDto {
 		this.vehicleName = vehicleName;
 	}
 
-	public Integer getCustomerId() {
-		return customerId;
+	public Integer getEndUserId() {
+		return endUserId;
 	}
 
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
+	public void setEndUserId(Integer customerId) {
+		this.endUserId = customerId;
 	}
 }

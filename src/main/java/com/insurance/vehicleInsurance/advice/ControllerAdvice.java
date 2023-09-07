@@ -4,10 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import com.insurance.vehicleInsurance.exception.AdminException;
 import com.insurance.vehicleInsurance.exception.ApprovalException;
 import com.insurance.vehicleInsurance.exception.ClaimException;
-import com.insurance.vehicleInsurance.exception.CustomerException;
+import com.insurance.vehicleInsurance.exception.EndUserException;
 import com.insurance.vehicleInsurance.exception.InsuranceException;
 import com.insurance.vehicleInsurance.exception.InsuranceRenewalException;
 import com.insurance.vehicleInsurance.exception.DocumentException;
@@ -19,9 +18,9 @@ import com.insurance.vehicleInsurance.exception.VehicleInspectionException;
 @RestControllerAdvice
 public class ControllerAdvice {
 	
-	@ExceptionHandler(CustomerException.class)
-	public ResponseEntity<String>handleCustomerException(CustomerException customerException){
-		return new ResponseEntity<String>(customerException.getMessage(),HttpStatus.BAD_REQUEST);
+	@ExceptionHandler(EndUserException.class)
+	public ResponseEntity<String>handleCustomerException(EndUserException userException){
+		return new ResponseEntity<String>(userException.getMessage(),HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(VehicleException.class)
@@ -47,11 +46,6 @@ public class ControllerAdvice {
 	@ExceptionHandler(RegistrationException.class)
 	public ResponseEntity<String>handleRegistrationException(RegistrationException registrationException){
 		return new ResponseEntity<String>(registrationException.getMessage(),HttpStatus.BAD_REQUEST);
-	}
-	
-	@ExceptionHandler(AdminException.class)
-	public ResponseEntity<String>handleAdminException(AdminException adminException){
-		return new ResponseEntity<String>(adminException.getMessage(),HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(ApprovalException.class)

@@ -18,14 +18,14 @@ public class Registration {
 	private String password;
 
 	@OneToOne
-	Customer customer;
+	EndUser customer;
 	
 	public Registration() {
 		super();
 	}
 
 	public Registration(Integer id, String name, String phone,String email, String description, String userName, String password,
-			Customer customer) {
+			EndUser customer) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -85,11 +85,11 @@ public class Registration {
 		this.password = password;
 	}
 
-	public Customer getCustomer() {
+	public EndUser getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(EndUser customer) {
 		this.customer = customer;
 	}
 
