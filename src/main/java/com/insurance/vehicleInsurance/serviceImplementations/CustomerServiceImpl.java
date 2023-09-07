@@ -18,13 +18,10 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Override
 	public Customer addCustomer(CustomerDto nc) throws CustomerException {
-		
 		Optional<Customer> customerOpt = this.customerRepository.findByCustomerName(nc.getCustomerName());
-		
 		if(customerOpt.isPresent()) {
 			throw new CustomerException("Customer already exist name: "+nc.getCustomerName());
 		}
-//		
 //		List<Vehicle> vehicles = customer.getVehicles();
 //		if(vehicles != null) {
 //			vehicles = this.vehicleRepository.saveAll(vehicles);
@@ -55,11 +52,12 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer updateCustomer(Customer newCustomer) throws CustomerException {
+	public Customer updateCustomer(CustomerDto newCustomer) throws CustomerException {
 		if(newCustomer==null) {
 			throw new CustomerException("Please enter valid values.");
 		}
-		return this.customerRepository.save(newCustomer);
+		Customer customer = new Customer(newCustomer.getCustomerName(),newCustomer.getCustomerMobile(),newCustomer.getCustomerEmail(),newCustomer.getCustomerAddress(),newCustomer.getCustomerUserName(),newCustomer.getCustomerPassword());
+		return this.customerRepository.save(customer);
 	}
 
 	@Override

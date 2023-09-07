@@ -7,6 +7,5 @@ import com.insurance.vehicleInsurance.entity.Vehicle;
 
 public interface VehicleRepository extends JpaRepository<Vehicle, Integer>{
 
-	Optional<Vehicle> findByVehicleRegNumber(String regNo);
-	
+	Optional<Vehicle> findByVehicleRegNumber(String registrationNumber);
 }

@@ -61,6 +61,10 @@ public class CustomerDto {
 	public void setCustomerPassword(String customerPassword) {
 		this.customerPassword = customerPassword;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Name = " + customerName + ", Mobile = " + customerMobile + ", Email= "
+				+ customerEmail + ", Address = " + customerAddress + ", UserName = " + customerUserName;
+	}
 }

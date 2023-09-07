@@ -43,19 +43,19 @@ public class VehicleInspectionServiceImpl implements VehicleInspectionService{
 		return this.vehicleInspectionRepository.save(newInspection);
 	}
 
-	@Override
-	public VehicleInspection deleteInspectionById(Integer id) throws VehicleInspectionException {
-		Optional<VehicleInspection> vehicleInspectionOpt = this.vehicleInspectionRepository.findById(id);
-		if(vehicleInspectionOpt==null) {
-			throw new VehicleInspectionException("Vehicle Inspection not found to delete for id: "+id);
-		}
-		VehicleInspection vehicleInspection = vehicleInspectionOpt.get();
-		this.vehicleInspectionRepository.delete(vehicleInspection);
-		return vehicleInspection;
-	}
+//	@Override
+//	public VehicleInspection deleteInspectionById(Integer id) throws VehicleInspectionException {
+//		Optional<VehicleInspection> vehicleInspectionOpt = this.vehicleInspectionRepository.findById(id);
+//		if(vehicleInspectionOpt==null) {
+//			throw new VehicleInspectionException("Vehicle Inspection not found to delete for id: "+id);
+//		}
+//		VehicleInspection vehicleInspection = vehicleInspectionOpt.get();
+//		this.vehicleInspectionRepository.delete(vehicleInspection);
+//		return vehicleInspection;
+//	}
 
 	@Override
-	public List<VehicleInspection> getAllInspectiions() {
+	public List<VehicleInspection> getAllInspections() {
 		return this.vehicleInspectionRepository.findAll();
 	}
 

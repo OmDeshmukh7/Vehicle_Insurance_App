@@ -15,6 +15,8 @@ public class Vehicle {
 	private String vehicleType;
 	private String vehicleRegNumber;
 	private String vehicleName;
+	private Integer customerId;
+	
 	@OneToOne
 	private Insurance insurance;
 	
@@ -22,11 +24,12 @@ public class Vehicle {
 		super();
 	}
 
-	public Vehicle(String vehicleType, String vehicleRegNumber, String vehicleName) {
+	public Vehicle(String vehicleType, String vehicleRegNumber, String vehicleName, Integer customerId) {
 		super();
 		this.vehicleType = vehicleType;
 		this.vehicleRegNumber = vehicleRegNumber;
 		this.vehicleName = vehicleName;
+		this.customerId = customerId;
 	}
 
 	public Integer getVehicleId() {
@@ -66,5 +69,13 @@ public class Vehicle {
 
 	public void setInsurance(Insurance insurance) {
 		this.insurance = insurance;
+	}
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
 	}
 }

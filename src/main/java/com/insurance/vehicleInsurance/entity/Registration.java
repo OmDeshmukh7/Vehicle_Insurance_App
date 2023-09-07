@@ -12,6 +12,7 @@ public class Registration {
 	private Integer id;
 	private String name;
 	private String phone;
+	private String email;
 	private String description;
 	private String userName;
 	private String password;
@@ -23,12 +24,13 @@ public class Registration {
 		super();
 	}
 
-	public Registration(Integer id, String name, String phone, String description, String userName, String password,
+	public Registration(Integer id, String name, String phone,String email, String description, String userName, String password,
 			Customer customer) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
+		this.email = email;
 		this.description = description;
 		this.userName = userName;
 		this.password = password;
@@ -89,5 +91,13 @@ public class Registration {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

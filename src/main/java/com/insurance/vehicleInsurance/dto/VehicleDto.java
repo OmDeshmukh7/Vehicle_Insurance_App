@@ -1,33 +1,22 @@
 package com.insurance.vehicleInsurance.dto;
 
-import javax.persistence.Id;
-
 public class VehicleDto {
 
-	@Id
-	private Integer vehicleId;
 	private String vehicleType;
 	private String vehicleRegNumber;
 	private String vehicleName;
+	private Integer customerId;
 	
 	public VehicleDto() {
 		super();
 	}
 
-	public VehicleDto(Integer vehicleId, String vehicleType, String vehicleRegNumber, String vehicleName) {
+	public VehicleDto(String vehicleType, String vehicleRegNumber, String vehicleName, Integer customerId) {
 		super();
-		this.vehicleId = vehicleId;
 		this.vehicleType = vehicleType;
 		this.vehicleRegNumber = vehicleRegNumber;
 		this.vehicleName = vehicleName;
-	}
-
-	public Integer getVehicleId() {
-		return vehicleId;
-	}
-
-	public void setVehicleId(Integer vehicleId) {
-		this.vehicleId = vehicleId;
+		this.customerId = customerId;
 	}
 
 	public String getVehicleType() {
@@ -53,5 +42,12 @@ public class VehicleDto {
 	public void setVehicleName(String vehicleName) {
 		this.vehicleName = vehicleName;
 	}
-	
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
 }

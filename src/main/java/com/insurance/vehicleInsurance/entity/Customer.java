@@ -2,7 +2,6 @@ package com.insurance.vehicleInsurance.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -119,6 +118,14 @@ public class Customer {
 		this.registration = registration;
 	}
 
+	public List<Insurance> getInsurances() {
+		return insurances;
+	}
+
+	public void setInsurances(List<Insurance> insurances) {
+		this.insurances = insurances;
+	}
+
 	public List<Vehicle> getVehicles() {
 		return vehicles;
 	}
@@ -127,12 +134,10 @@ public class Customer {
 		this.vehicles = vehicles;
 	}
 
-	public List<Insurance> getInsurances() {
-		return insurances;
-	}
-
-	public void setInsurances(List<Insurance> insurances) {
-		this.insurances = insurances;
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerMobile="
+				+ customerMobile + ", customerEmail=" + customerEmail + ", customerAddress=" + customerAddress + "]";
 	}
 	
 }
