@@ -16,28 +16,15 @@ public class EndUserServiceImpl implements EndUserService{
 	@Autowired
 	EndUserRepository UserRepository;
 	
+	/* Implements methods like adding a user, updating user details, deleting users, getting a list of all users and finding users by user ID */
+	
 	@Override
 	public EndUser addUser(EndUserDto nc) throws EndUserException {
 		Optional<EndUser> UserOpt = this.UserRepository.findByName(nc.getUserName());
 		if(UserOpt.isPresent()) {
 			throw new EndUserException("User already exist name: "+nc.getUserName());
 		}
-//		List<Vehicle> vehicles = User.getVehicles();
-//		if(vehicles != null) {
-//			vehicles = this.vehicleRepository.saveAll(vehicles);
-//		}User.setVehicles(vehicles);
-//		Documents documents = User.getDocuments();
-//		if(documents != null) {
-//			documents = this.documentRepository.save(documents);
-//		}User.setDocuments(documents);
-//		Registration registration = User.getRegistration();
-//		if(registration != null) {
-//			registration = this.registrationRepository.save(registration);
-//		}User.setRegistration(registration);
-//		List<Insurance> insurances= User.getInsurances();
-//		if(insurances != null) {
-//			insurances=this.insuranceRepository.saveAll(insurances);
-//		}User.setInsurances(insurances);
+
 		EndUser User = new EndUser(nc.getName(),nc.getMobile(),nc.getEmail(),nc.getAddress(),nc.getUserName(),nc.getPassword(),nc.getRole());		
 		return this.UserRepository.save(User);
 	}

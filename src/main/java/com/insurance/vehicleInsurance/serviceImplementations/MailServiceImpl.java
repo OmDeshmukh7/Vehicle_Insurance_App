@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.insurance.vehicleInsurance.service.MailService;
 
+/*uses spring javamail to send en email to users with the set subject, body and email address */
+
 @Service
 public class MailServiceImpl implements MailService{
 

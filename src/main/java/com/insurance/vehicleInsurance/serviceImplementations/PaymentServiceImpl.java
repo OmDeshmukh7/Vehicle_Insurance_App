@@ -16,6 +16,8 @@ import com.insurance.vehicleInsurance.entity.Payment;
 import com.insurance.vehicleInsurance.exception.PaymentException;
 import com.insurance.vehicleInsurance.service.PaymentService;
 
+/* implemenmts methods like adding a payment for a particular insurance, and get a list of payments for the insuranceID. also checks if the endUser and insurance exists for that user before payment. */
+
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
@@ -27,7 +29,7 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Autowired
 	InsuranceRepository insuranceRepository;
-
+	
 	@Override
 	public Payment createPaymentByInsuranceId(Payment newPayment) throws PaymentException {
 		Optional<Insurance> insuranceOpt = this.insuranceRepository.findById(newPayment.getInsuranceId());

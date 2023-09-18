@@ -14,6 +14,9 @@ import com.insurance.vehicleInsurance.entity.Vehicle;
 import com.insurance.vehicleInsurance.exception.VehicleException;
 import com.insurance.vehicleInsurance.service.VehicleService;
 
+
+/*Implements all the methods related to vehicle like adding vehicle, getting vehicle by regiatration number, updating vehicle details deleting vehicle and getting a list fo all vehicles for that particular user*/
+
 @Service
 public class VehicleServiceImpl implements VehicleService {
 

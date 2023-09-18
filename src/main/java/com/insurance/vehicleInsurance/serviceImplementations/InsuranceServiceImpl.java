@@ -14,9 +14,10 @@ import com.insurance.vehicleInsurance.dto.InsuranceDto;
 import com.insurance.vehicleInsurance.entity.EndUser;
 import com.insurance.vehicleInsurance.entity.Insurance;
 import com.insurance.vehicleInsurance.entity.Vehicle;
-import com.insurance.vehicleInsurance.exception.ClaimException;
 import com.insurance.vehicleInsurance.exception.InsuranceException;
 import com.insurance.vehicleInsurance.service.InsuranceService;
+
+/* implements methodslike  creating insurance, updating insurance, searching insurance by insurance ID and getting a list of all purchased insurances. Also implements admin side methods like updating insurance status. */
 
 @Service
 public class InsuranceServiceImpl implements InsuranceService {

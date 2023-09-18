@@ -9,6 +9,8 @@ import com.insurance.vehicleInsurance.service.InsuranceRenewalService;
 @Service
 public class InsuranceRenewalServiceImpl implements InsuranceRenewalService{
 
+/* sends a reminder to renew insurance after the insurance is expired */
+
 	@Override
 	public String sendInsuranceRenewalReminder(Integer insuranceNumber) throws InsuranceRenewalException {
 		
