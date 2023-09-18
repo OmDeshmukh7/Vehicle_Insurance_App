@@ -24,11 +24,11 @@ public class VehicleServiceImpl implements VehicleService {
 	InsuranceRepository insuranceRepository;
 
 	@Autowired
-	EndUserRepository customerRepository;
+	EndUserRepository endUserRepository;
 
 	@Override
 	public Vehicle addVehicle(VehicleDto newVehicle) throws VehicleException {
-		Optional<EndUser> endUserOpt = this.customerRepository.findById(newVehicle.getEndUserId());
+		Optional<EndUser> endUserOpt = this.endUserRepository.findById(newVehicle.getEndUserId());
 		if (!endUserOpt.isPresent()) {
 			throw new VehicleException("No Customer is present with id: " + newVehicle.getEndUserId());
 		}
@@ -43,7 +43,7 @@ public class VehicleServiceImpl implements VehicleService {
 		List<Vehicle> vehicles = new ArrayList<Vehicle>();
 		vehicles.add(vehicle);
 		customer.setVehicles(vehicles);
-		this.customerRepository.save(customer);
+		this.endUserRepository.save(customer);
 		return vehicle;
 	}
 

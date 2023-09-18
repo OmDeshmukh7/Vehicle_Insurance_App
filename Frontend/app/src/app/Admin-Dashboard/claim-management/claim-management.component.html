@@ -1,0 +1,29 @@
+<body>      
+<h1 class="title">Claim Details</h1>
+
+<table class="customer-table">
+  <thead>
+    <tr>
+      <th>Customer-Id</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let claim of claim">
+      <td>{{claim.endUserId}}</td>
+      <td>{{claim.claimDate}}</td>
+      <td>{{claim.claimAmount}}</td>
+      <td>{{claim.claimDescription}}</td>
+      <td>{{claim.claimStatus}}</td>
+      <td>
+        <button (click)="approveClaim(claim)">Approve</button>
+        <button (click)="rejectClaim(claim)">Reject</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>

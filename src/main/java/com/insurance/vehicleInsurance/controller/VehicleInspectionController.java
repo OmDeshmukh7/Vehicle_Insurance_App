@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,18 +18,19 @@ import com.insurance.vehicleInsurance.exception.VehicleInspectionException;
 import com.insurance.vehicleInsurance.service.VehicleInspectionService;
 
 @RestController
+@CrossOrigin(origins="http://localhost:4200/")
 public class VehicleInspectionController {
 	
 	@Autowired
 	VehicleInspectionService vehicleInspectionService;
 
-	@PostMapping("/addInspection/")
+	@PostMapping("/Inspection/")
 	public VehicleInspection addVehicleInspection(@RequestBody VehicleInspection vehicleInspection)
 			throws VehicleInspectionException {
 		return this.vehicleInspectionService.addInspection(vehicleInspection);
 	}
 
-	@GetMapping("/findInspection/{id}")
+	@GetMapping("/Inspection/{id}")
 	public VehicleInspection getVehicleInspectionById(@PathVariable Integer id) throws VehicleInspectionException {
 		return this.vehicleInspectionService.getInspectionById(id);
 	}
@@ -40,7 +42,7 @@ public class VehicleInspectionController {
 //		return new ResponseEntity<VehicleInspection>(vehicleInspection, HttpStatus.OK);
 //	}
 
-	@GetMapping("/getAllVehicleInspections/")
+	@GetMapping("/Inspections/")
 	@ResponseStatus(HttpStatus.OK)
 	public List<VehicleInspection> getAllVehicleInspections() {
 		List<VehicleInspection> vehicleInspectionList = this.vehicleInspectionService.getAllInspections();

@@ -20,6 +20,8 @@ public class Insurance {
 	private String insuranceNumber;
 	private String insuranceDescription;
 	private String insuranceType;
+	private Integer endUserId;
+	private String status;
 	
 	@OneToMany
 	List<Payment> payments = new ArrayList<Payment>();
@@ -32,18 +34,15 @@ public class Insurance {
 		super();
 	}
 
-	public Insurance(Integer insuranceId, Double insuranceAmount, String insuranceNumber, String insuranceDescription,
-			String insuranceType, List<Payment> payments, List<Claim> claims,
-			InsuranceRenewal insuranceRenewal) {
+	public Insurance(Double insuranceAmount, String insuranceNumber, String insuranceDescription,
+			String insuranceType,Integer endUserId, String status) {
 		super();
-		this.insuranceId = insuranceId;
 		this.insuranceAmount = insuranceAmount;
 		this.insuranceNumber = insuranceNumber;
 		this.insuranceDescription = insuranceDescription;
 		this.insuranceType = insuranceType;
-		this.payments = payments;
-		this.claims = claims;
-		this.insuranceRenewal = insuranceRenewal;
+		this.endUserId = endUserId;
+		this.status = status;
 	}
 
 	public Integer getInsuranceId() {
@@ -109,4 +108,21 @@ public class Insurance {
 	public void setInsuranceRenewal(InsuranceRenewal insuranceRenewal) {
 		this.insuranceRenewal = insuranceRenewal;
 	}
+
+	public Integer getEndUserId() {
+		return endUserId;
+	}
+
+	public void setEndUserId(Integer endUserId) {
+		this.endUserId = endUserId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 }

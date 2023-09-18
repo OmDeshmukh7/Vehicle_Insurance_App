@@ -7,11 +7,13 @@ import com.insurance.vehicleInsurance.exception.ClaimException;
 
 public interface ClaimService {
 	
-	Claim addClaim(Claim newClaim)throws ClaimException;
+	Claim addClaim(Claim newClaim) throws ClaimException;
+
+	List<Claim> getClaimsByInsuranceId(Integer insuranceId) throws ClaimException;
 	
-	Claim getClaimById(Integer id)throws ClaimException;
+	List<Claim> getAllClaims()throws ClaimException;
 	
-	Claim updateClaim(Claim newClaim)throws ClaimException;
+	String updateClaimStatusToApproved(Integer id) throws ClaimException;
 	
-	List<Claim>getAllClaims();
+	String updateClaimStatusToRejected(Integer id) throws ClaimException;
 }

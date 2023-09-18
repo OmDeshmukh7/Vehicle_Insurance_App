@@ -10,19 +10,22 @@ public class InsuranceDto {
 	private String insuranceNumber;
 	private String insuranceDescription;
 	private String insuranceType;
+	private Integer endUserId;
+	private String status;
 	
 	public InsuranceDto() {
 		super();
 	}
 
-	public InsuranceDto(Integer insuranceId, Double insuranceAmount, String insuranceNumber,
-			String insuranceDescription, String insuranceType) {
+	public InsuranceDto( Double insuranceAmount, String insuranceNumber,
+			String insuranceDescription, String insuranceType,Integer endUserId,String status) {
 		super();
-		this.insuranceId = insuranceId;
 		this.insuranceAmount = insuranceAmount;
 		this.insuranceNumber = insuranceNumber;
 		this.insuranceDescription = insuranceDescription;
 		this.insuranceType = insuranceType;
+		this.endUserId = endUserId;
+		this.status= status;
 	}
 
 	public Integer getInsuranceId() {
@@ -63,6 +66,22 @@ public class InsuranceDto {
 
 	public void setInsuranceType(String insuranceType) {
 		this.insuranceType = insuranceType;
+	}
+
+	public Integer getEndUserId() {
+		return endUserId;
+	}
+
+	public void setEndUserId(Integer endUserId) {
+		this.endUserId = endUserId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

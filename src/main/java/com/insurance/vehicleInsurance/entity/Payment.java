@@ -15,17 +15,21 @@ public class Payment {
 	private LocalDate date;
 	private Double amount;
 	private String description;
+	private Integer endUserId;
+	private Integer insuranceId;
 	
 	public Payment() {
 		super();
 	}
 
-	public Payment(Integer id, LocalDate date, Double amount, String description) {
+	public Payment(Integer id, LocalDate date, Double amount, String description, Integer endUserId, Integer insuranceId) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.amount = amount;
 		this.description = description;
+		this.endUserId = endUserId;
+		this.insuranceId = insuranceId;
 
 	}
 
@@ -59,5 +63,21 @@ public class Payment {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Integer getEndUserId() {
+		return endUserId;
+	}
+
+	public void setEndUserId(Integer endUserId) {
+		this.endUserId = endUserId;
+	}
+
+	public Integer getInsuranceId() {
+		return insuranceId;
+	}
+
+	public void setInsuranceId(Integer insuranceId) {
+		this.insuranceId = insuranceId;
 	}
 }

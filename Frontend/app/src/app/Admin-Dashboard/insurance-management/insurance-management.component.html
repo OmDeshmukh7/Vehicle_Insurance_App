@@ -1,0 +1,33 @@
+<body>      
+    <h1 class="title">Insurance Details</h1>
+    
+    <table class="customer-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Number</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Customer-ID</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Insurance of insurance">
+          <td>{{Insurance.insuranceId}}</td>
+          <td>{{Insurance.insuranceNumber}}</td>
+          <td>{{Insurance.insuranceType}}</td>
+          <td>{{Insurance.insuranceDescription}}</td>
+          <td>{{Insurance.insuranceAmount}}</td>
+          <td>{{Insurance.endUserId}}</td>
+          <td>{{Insurance.status}}</td>
+          <td>
+            <button (click)="approveInsurance(insurance)">Approve</button>
+            <button (click)="rejectInsurance(insurance)">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </body>

@@ -4,14 +4,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import com.insurance.vehicleInsurance.exception.ApprovalException;
 import com.insurance.vehicleInsurance.exception.ClaimException;
 import com.insurance.vehicleInsurance.exception.EndUserException;
 import com.insurance.vehicleInsurance.exception.InsuranceException;
 import com.insurance.vehicleInsurance.exception.InsuranceRenewalException;
+import com.insurance.vehicleInsurance.exception.LoginExecption;
 import com.insurance.vehicleInsurance.exception.DocumentException;
 import com.insurance.vehicleInsurance.exception.PaymentException;
-import com.insurance.vehicleInsurance.exception.RegistrationException;
 import com.insurance.vehicleInsurance.exception.VehicleException;
 import com.insurance.vehicleInsurance.exception.VehicleInspectionException;
 
@@ -43,16 +42,6 @@ public class ControllerAdvice {
 		return new ResponseEntity<String>(paymentException.getMessage(),HttpStatus.BAD_REQUEST);
 	}
 	
-	@ExceptionHandler(RegistrationException.class)
-	public ResponseEntity<String>handleRegistrationException(RegistrationException registrationException){
-		return new ResponseEntity<String>(registrationException.getMessage(),HttpStatus.BAD_REQUEST);
-	}
-
-	@ExceptionHandler(ApprovalException.class)
-	public ResponseEntity<String>handleApprovalException(ApprovalException approvalException){
-		return new ResponseEntity<String>(approvalException.getMessage(),HttpStatus.BAD_REQUEST);
-	}
-	
 	@ExceptionHandler(ClaimException.class)
 	public ResponseEntity<String>handleClaimException(ClaimException claimException){
 		return new ResponseEntity<String>(claimException.getMessage(),HttpStatus.BAD_REQUEST);
@@ -66,5 +55,10 @@ public class ControllerAdvice {
 	@ExceptionHandler(VehicleInspectionException.class)
 	public ResponseEntity<String>handleVehicleInspection(VehicleInspectionException vehicleInspectionException){
 		return new ResponseEntity<String>(vehicleInspectionException.getMessage(),HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(LoginExecption.class)
+	public ResponseEntity<String>handleLoginException(LoginExecption loginExecption){
+		return new ResponseEntity<String>(loginExecption.getMessage(),HttpStatus.BAD_REQUEST);
 	}
 }

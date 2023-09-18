@@ -38,7 +38,7 @@ public class EndUserServiceImpl implements EndUserService{
 //		if(insurances != null) {
 //			insurances=this.insuranceRepository.saveAll(insurances);
 //		}User.setInsurances(insurances);
-		EndUser User = new EndUser(nc.getName(),nc.getMobile(),nc.getEmail(),nc.getAddress(),nc.getUserName(),nc.getPassword());		
+		EndUser User = new EndUser(nc.getName(),nc.getMobile(),nc.getEmail(),nc.getAddress(),nc.getUserName(),nc.getPassword(),nc.getRole());		
 		return this.UserRepository.save(User);
 	}
 
@@ -56,7 +56,7 @@ public class EndUserServiceImpl implements EndUserService{
 		if(newUser==null) {
 			throw new EndUserException("Please enter valid values.");
 		}
-		EndUser User = new EndUser(newUser.getName(),newUser.getMobile(),newUser.getEmail(),newUser.getAddress(),newUser.getUserName(),newUser.getPassword());	
+		EndUser User = new EndUser(newUser.getName(),newUser.getMobile(),newUser.getEmail(),newUser.getAddress(),newUser.getUserName(),newUser.getPassword(),newUser.getRole());	
 		return this.UserRepository.save(User);
 	}
 
@@ -74,6 +74,17 @@ public class EndUserServiceImpl implements EndUserService{
 	@Override
 	public List<EndUser> getAllUser() {
 		return this.UserRepository.findAll();
+	}
+
+	@Override
+	public String getUserRole(String userName) throws EndUserException {
+		Optional<EndUser> userOpt = this.UserRepository.findByUserName(userName);
+		if(!userOpt.isPresent()) {
+			System.out.println("nahi run hot");
+		}
+		EndUser endUser = userOpt.get();
+		String role = endUser.getRole(); 
+		return role;
 	}
 
 }

@@ -3,30 +3,40 @@ package com.insurance.vehicleInsurance.entity;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Claim {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer claimId;
-	private String claimType;
+	private String claimAmount;
 	private LocalDate claimDate;
 	private String claimDescription;
 	private String claimStatus;
-	
+	private Integer insuranceId;
+	private Integer endUserId;
+
+
+	public Claim(String claimAmount, LocalDate claimDate, String claimDescription, String claimStatus,
+			Integer insuranceId, Integer endUserId) {
+		super();
+		
+		this.claimAmount = claimAmount;
+		this.claimDate = claimDate;
+		this.claimDescription = claimDescription;
+		this.claimStatus = claimStatus;
+		this.insuranceId = insuranceId;
+		this.endUserId = endUserId;
+	}
+
 	public Claim() {
 		super();
 	}
 
-	public Claim(Integer claimId, String claimType, LocalDate claimDate, String claimDescription, String claimStatus) {
-		super();
-		this.claimId = claimId;
-		this.claimType = claimType;
-		this.claimDate = claimDate;
-		this.claimDescription = claimDescription;
-		this.claimStatus = claimStatus;
-	}
 
 	public Integer getClaimId() {
 		return claimId;
@@ -36,12 +46,12 @@ public class Claim {
 		this.claimId = claimId;
 	}
 
-	public String getClaimType() {
-		return claimType;
+	public String getClaimAmount() {
+		return claimAmount;
 	}
 
-	public void setClaimType(String claimType) {
-		this.claimType = claimType;
+	public void setClaimAmount(String claimAmount) {
+		this.claimAmount = claimAmount;
 	}
 
 	public LocalDate getClaimDate() {
@@ -67,4 +77,21 @@ public class Claim {
 	public void setClaimStatus(String claimStatus) {
 		this.claimStatus = claimStatus;
 	}
+
+	public Integer getInsuranceId() {
+		return insuranceId;
+	}
+
+	public void setInsuranceId(Integer insuranceId) {
+		this.insuranceId = insuranceId;
+	}
+
+	public Integer getEndUserId() {
+		return endUserId;
+	}
+
+	public void setEndUserId(Integer endUserId) {
+		this.endUserId = endUserId;
+	}
+
 }

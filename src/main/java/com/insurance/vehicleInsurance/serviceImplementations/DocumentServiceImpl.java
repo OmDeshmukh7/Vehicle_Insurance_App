@@ -14,6 +14,8 @@ import com.insurance.vehicleInsurance.entity.EndUser;
 import com.insurance.vehicleInsurance.exception.DocumentException;
 import com.insurance.vehicleInsurance.service.DocumentService;
 
+/*Implements all the methods related to documents adding document, getting document and deleting document*/
+
 @Service
 public class DocumentServiceImpl implements DocumentService{
 

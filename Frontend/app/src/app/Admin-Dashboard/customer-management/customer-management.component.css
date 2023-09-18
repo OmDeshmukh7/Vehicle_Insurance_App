@@ -1,0 +1,51 @@
+/* Style the title */
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('../customer-management/Untitled design.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+.title {  
+    font-size: 24px;   color: #ffffff; /* Dark blue color */  
+    text-align: center;   
+    margin-bottom: 10px; 
+} 
+/* Style the table */
+.customer-table {  
+     width: 100%;   
+     border-collapse: collapse;
+ } 
+/* Style the table header */
+.customer-table th {   
+    background-color: #000000;
+    color: white;   
+    padding: 10px;   
+    text-align: left; 
+} 
+
+.customer-table td {  
+    padding: 8px;   
+    border-bottom: 1px solid #040404;
+}
+
+.customer-table tbody tr:nth-child(odd) {   
+    background-color: #ffffff; 
+} 
+
+.customer-table tbody tr:nth-child(even) {   
+    background-color: #ffffff; 
+}
+/* Style the links within the table cells */
+.customer-table a {   color: #0074e4;  
+    text-decoration: none; 
+} 
+
+/* Style the links on hover */
+.customer-table a:hover {   
+    text-decoration: underline; 
+}
+

@@ -15,6 +15,8 @@ public interface EndUserService {
 	EndUser updateUser(EndUserDto newUser) throws EndUserException;
 
 	EndUser deleteUserById(String userName) throws EndUserException;
+	
+	String getUserRole(String userName) throws EndUserException;
 
 	List<EndUser> getAllUser();
 

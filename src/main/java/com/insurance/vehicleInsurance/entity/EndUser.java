@@ -22,24 +22,25 @@ public class EndUser {
 	private String address;
 	private String userName;
 	private String password;
-	
+	private String role;
 	@OneToMany
 	List<Vehicle> vehicles = new ArrayList<Vehicle>();
 	@OneToMany
 	List<Documents> documents = new ArrayList<Documents>();
-	@OneToOne
-	Registration registration;
 	@OneToMany
 	List<Insurance> insurances = new ArrayList<Insurance>();
-	@ManyToMany
-	List<Approval>approvals = new ArrayList<Approval>();
+	@OneToMany
+	List<Claim> claims = new ArrayList<Claim>();
+	@OneToMany
+	List<Payment> payments = new ArrayList<Payment>();
+	
 	
 	public EndUser() {
 		super();
 	}
 
 	public EndUser(String name, String mobile, String email, String address, String userName,
-			String password) {
+			String password, String role) {
 		super();
 		this.name = name;
 		this.mobile = mobile;
@@ -47,6 +48,7 @@ public class EndUser {
 		this.address = address;
 		this.userName = userName;
 		this.password = password;
+		this.role = role;
 	}
 
 	public Integer getId() {
@@ -121,14 +123,6 @@ public class EndUser {
 		this.documents = documents;
 	}
 
-	public Registration getRegistration() {
-		return registration;
-	}
-
-	public void setRegistration(Registration registration) {
-		this.registration = registration;
-	}
-
 	public List<Insurance> getInsurances() {
 		return insurances;
 	}
@@ -137,11 +131,27 @@ public class EndUser {
 		this.insurances = insurances;
 	}
 
-	public List<Approval> getApprovals() {
-		return approvals;
+	public List<Claim> getClaims() {
+		return claims;
 	}
 
-	public void setApprovals(List<Approval> approvals) {
-		this.approvals = approvals;
+	public void setClaims(List<Claim> claims) {
+		this.claims = claims;
+	}
+
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
